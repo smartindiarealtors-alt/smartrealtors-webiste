@@ -398,7 +398,10 @@ body{
 header.main-header{
 	background-color: transparent;
 	border-bottom: 1px solid var(--dark-divider-color);
-	position: relative;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
 	z-index: 100;
 	margin: 0px 0px 0px 0px;
 }
@@ -660,7 +663,7 @@ header.main-header .header-sticky.active{
 	background-size: cover;
 	padding: 300px 0 200px;
 	position: relative;
-	margin-top: -103px;
+	margin-top: 0px;
 }
 
 .hero.bg-section:before{
@@ -3369,7 +3372,7 @@ header.main-header .header-sticky.active{
 
 	.hero.bg-section{
 		margin: 0 0px;
-		margin-top: -103px;
+		margin-top: 0px;
 		padding: 200px 0 100px;
 		border-radius: 0;
 	}
