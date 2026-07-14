@@ -1,0 +1,457 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&display=swap');
+@import "tailwindcss";
+
+/* ============================================================
+   TAILWIND V4 THEME CONFIGURATION
+   ============================================================ */
+@theme {
+  --color-gold-50:  #fdfae8;
+  --color-gold-100: #faf3c0;
+  --color-gold-200: #f5e47a;
+  --color-gold-300: #f0d054;
+  --color-gold-400: #e8b824;
+  --color-gold-500: #C9A84C;
+  --color-gold-600: #a8832a;
+  --color-gold-700: #8a6520;
+  --color-gold-800: #6e4e1e;
+  --color-gold-900: #5a3f1c;
+
+  --color-dark-50:  #f4f4f8;
+  --color-dark-100: #e0e0ec;
+  --color-dark-200: #b8b8d4;
+  --color-dark-300: #8888b0;
+  --color-dark-400: #55558c;
+  --color-dark-500: #2a2a5a;
+  --color-dark-600: #1a1a38;
+  --color-dark-700: #12121e;
+  --color-dark-800: #0d0d18;
+  --color-dark-900: #080810;
+  --color-dark-950: #04040a;
+
+  --color-sir-purple: #7C3AED;
+  --color-sir-red:    #DC2626;
+  --color-sir-green:  #16A34A;
+  --color-sir-gold:   #C9A84C;
+
+  --font-sans:    "Outfit", system-ui, sans-serif;
+  --font-heading: "Playfair Display", Georgia, serif;
+
+  --shadow-gold:    0 0 20px rgba(201,168,76,0.3);
+  --shadow-gold-lg: 0 0 40px rgba(201,168,76,0.4);
+  --shadow-glass:   0 8px 32px rgba(0,0,0,0.4);
+  --shadow-card:    0 20px 60px rgba(0,0,0,0.5);
+
+  --animate-float:     float 6s ease-in-out infinite;
+  --animate-shimmer:   shimmer 2s linear infinite;
+  --animate-slide-up:  slide-up 0.6s ease-out;
+  --animate-fade-in:   fade-in 0.5s ease-out;
+}
+
+/* ============================================================
+   CSS CUSTOM PROPERTIES — LUXURY DESIGN TOKENS
+   ============================================================ */
+:root {
+  --gold:          #C9A84C;
+  --gold-light:    #F0D080;
+  --gold-dark:     #8a6520;
+  --dark-bg:       #06060e;
+  --dark-card:     #0e0e1a;
+  --dark-surface:  #14141f;
+  --dark-border:   rgba(201,168,76,0.15);
+  --text-primary:  #f8f8fc;
+  --text-muted:    #8888a8;
+  --glass-bg:      rgba(20,20,31,0.6);
+  --glass-border:  rgba(201,168,76,0.12);
+}
+
+/* ============================================================
+   BASE STYLES
+   ============================================================ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--dark-bg);
+  color: var(--text-primary);
+  font-family: 'Outfit', system-ui, sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+h4, h5, h6 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar        { width: 6px; }
+::-webkit-scrollbar-track  { background: var(--dark-bg); }
+::-webkit-scrollbar-thumb  { background: var(--gold); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gold-light); }
+
+::selection {
+  background: rgba(201,168,76,0.3);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid rgba(201,168,76,0.6);
+  outline-offset: 2px;
+}
+
+/* ============================================================
+   GLASSMORPHISM UTILITIES
+   ============================================================ */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+}
+
+.glass-card {
+  background: rgba(14, 14, 26, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(201,168,76,0.15);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+
+.glass-dark {
+  background: rgba(6, 6, 14, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.gold-text {
+  background: linear-gradient(135deg, #C9A84C 0%, #F0D080 50%, #C9A84C 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gold-glow {
+  box-shadow: 0 0 30px rgba(201,168,76,0.25), 0 0 60px rgba(201,168,76,0.1);
+}
+
+.luxury-shadow {
+  box-shadow: 0 25px 50px rgba(0,0,0,0.6), 0 0 0 1px rgba(201,168,76,0.1);
+}
+
+.shimmer {
+  background: linear-gradient(90deg, transparent 0%, rgba(201,168,76,0.15) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmer 2s linear infinite;
+}
+
+.hero-text-shadow {
+  text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+}
+
+/* ============================================================
+   COMPONENT CLASSES
+   ============================================================ */
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: #06060e;
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, #C9A84C 0%, #F0D080 50%, #C9A84C 100%);
+  background-size: 200% 100%;
+  box-shadow: 0 4px 15px rgba(201,168,76,0.3);
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+}
+
+.btn-gold:hover {
+  background-position: right center;
+  box-shadow: 0 8px 30px rgba(201,168,76,0.5);
+  transform: translateY(-1px);
+  color: #06060e;
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: #C9A84C;
+  border: 1px solid rgba(201,168,76,0.3);
+  background: transparent;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-ghost:hover {
+  background: rgba(201,168,76,0.08);
+  border-color: rgba(201,168,76,0.6);
+  box-shadow: 0 0 20px rgba(201,168,76,0.2);
+}
+
+.card-luxury {
+  background: rgba(14, 14, 26, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(201,168,76,0.15);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+
+.card-luxury:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(201,168,76,0.2);
+}
+
+.input-luxury {
+  width: 100%;
+  background: rgba(13,13,24,0.5);
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  color: white;
+  font-size: 0.875rem;
+  transition: all 0.3s ease;
+  outline: none;
+  font-family: 'Outfit', sans-serif;
+}
+
+.input-luxury::placeholder {
+  color: #555568;
+}
+
+.input-luxury:focus {
+  border-color: rgba(201,168,76,0.6);
+  box-shadow: 0 0 0 3px rgba(201,168,76,0.1);
+}
+
+.input-luxury option {
+  background: #0e0e1a;
+  color: white;
+}
+
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: rgba(201,168,76,0.1);
+  border: 1px solid rgba(201,168,76,0.3);
+  color: #C9A84C;
+}
+
+.filter-chip {
+  padding: 0.375rem 0.875rem;
+  border-radius: 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.03);
+  color: #8888a8;
+}
+
+.filter-chip:hover {
+  border-color: rgba(201,168,76,0.4);
+  color: #C9A84C;
+  background: rgba(201,168,76,0.05);
+}
+
+.filter-chip.active {
+  border-color: rgba(201,168,76,0.6);
+  background: rgba(201,168,76,0.1);
+  color: #C9A84C;
+}
+
+.score-bar {
+  position: relative;
+  height: 0.375rem;
+  border-radius: 9999px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.08);
+}
+
+.score-bar-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, #C9A84C, #F0D080);
+  transition: width 1.5s ease-out;
+}
+
+/* ============================================================
+   LAYOUT HELPER
+   ============================================================ */
+.container-luxury {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+@media (min-width: 768px)  { .container-luxury { padding: 0 2rem; } }
+@media (min-width: 1024px) { .container-luxury { padding: 0 3rem; } }
+@media (min-width: 1280px) { .container-luxury { padding: 0 4rem; } }
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
+}
+
+@keyframes pulse-gold {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201,168,76,0.4); }
+  50%       { box-shadow: 0 0 0 12px rgba(201,168,76,0); }
+}
+
+@keyframes slide-up {
+  0%   { transform: translateY(30px); opacity: 0; }
+  100% { transform: translateY(0);    opacity: 1; }
+}
+
+@keyframes fade-in {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.animate-slide-up  { animation: slide-up 0.6s ease-out; }
+.animate-fade-in   { animation: fade-in 0.5s ease-out; }
+.animate-float     { animation: float 6s ease-in-out infinite; }
+.animate-shimmer   { animation: shimmer 2s linear infinite; }
+.animate-pulse     { animation: pulse-gold 2s ease-in-out infinite; }
+.animate-spin      { animation: spin 1s linear infinite; }
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ============================================================
+   RANGE SLIDER
+   ============================================================ */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 2px;
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: var(--gold);
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(201,168,76,0.5);
+}
+
+/* ============================================================
+   WHATSAPP FLOAT
+   ============================================================ */
+.whatsapp-float {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 1000;
+  width: 56px;
+  height: 56px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: pulse-gold 2s ease-in-out infinite;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 30px rgba(37,211,102,0.6);
+}
+
+/* ============================================================
+   MAP CONTAINER
+   ============================================================ */
+.map-container {
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 1px solid rgba(201,168,76,0.15);
+}
+
+/* ============================================================
+   SKELETON
+   ============================================================ */
+.skeleton {
+  background: linear-gradient(90deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.04) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 0.5rem;
+}
+
+/* ============================================================
+   DIVIDER
+   ============================================================ */
+.divider-gold {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,168,76,0.4), transparent);
+  margin: 0 auto;
+}
+
+/* ============================================================
+   TRANSITION HELPERS
+   ============================================================ */
+.transition-1500 { transition-duration: 1500ms; }
+
+/* Tailwind utility overrides */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
