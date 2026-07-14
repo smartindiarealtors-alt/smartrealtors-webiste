@@ -4512,4 +4512,39 @@ header.main-header .header-sticky.active{
 	.error-page-content-heading h2{
 		font-size: 36px;
 	}
+}
+
+/* ==========================================================================
+   RESPONSIVE LOGO OVERRIDES FOR HIGH MOBILE VISIBILITY
+   ========================================================================== */
+.sir-brand-logo {
+    max-height: 120px;
+    width: auto;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 991px) {
+    .sir-brand-logo {
+        max-height: 160px; /* Taller on mobile viewports for clear text visibility */
+    }
+}
+
+@media (max-width: 576px) {
+    .sir-brand-logo {
+        max-height: 150px; /* Taller on mobile viewports for clear text visibility */
+    }
+}
+
+.sir-footer-logo {
+    max-height: 140px;
+    width: auto;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .sir-footer-logo {
+        max-height: 180px;
+    }
 }
