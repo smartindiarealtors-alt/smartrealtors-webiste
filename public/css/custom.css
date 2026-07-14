@@ -4527,12 +4527,38 @@ header.main-header .header-sticky.active{
 @media (max-width: 991px) {
     .sir-brand-logo {
         max-height: 160px; /* Taller on mobile viewports for clear text visibility */
+        margin: 0 auto !important;
+        display: block !important;
+    }
+    
+    .navbar-brand {
+        display: block !important;
+        text-align: center !important;
+        margin: 0 auto !important;
+        width: 100% !important;
+        float: none !important;
+    }
+    
+    .navbar-toggle {
+        position: absolute !important;
+        right: 15px !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        margin: 0 !important;
+        z-index: 101 !important;
+    }
+    
+    .navbar {
+        padding: 15px 0 !important;
+        position: relative !important;
     }
 }
 
 @media (max-width: 576px) {
     .sir-brand-logo {
         max-height: 150px; /* Taller on mobile viewports for clear text visibility */
+        margin: 0 auto !important;
+        display: block !important;
     }
 }
 
