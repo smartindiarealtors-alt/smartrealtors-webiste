@@ -44,7 +44,7 @@
 	}
 
 	/* Hero Slider Layout JS */
-	const hero_slider_layout = new Swiper('.hero-slider-layout .swiper', {
+	window.hero_slider_layout = new Swiper('.hero-slider-layout .swiper', {
 		slidesPerView : 1,
 		speed: 1000,
 		spaceBetween: 0,

@@ -97,6 +97,79 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // Populate all projects by default so it looks great on page load
   renderResults(projectsData);
+
+  // Inquiry form submit handler
+  const inquiryForm = document.getElementById("heroInquiryForm");
+  if (inquiryForm) {
+    inquiryForm.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const name = document.getElementById("heroInquiryName").value.trim();
+      const phone = document.getElementById("heroInquiryPhone").value.trim();
+      const type = document.getElementById("heroInquiryType").value;
+      const alertEl = document.getElementById("heroInquiryAlert");
+
+      if (!name || !phone || !type) return;
+
+      const submitBtn = inquiryForm.querySelector("button[type='submit']");
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "SUBMITTING...";
+      }
+
+      fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          fullname: name,
+          email: "inquiry@smartindiarealtors.in",
+          phone: phone,
+          subject: `Hero Inquiry: ${type}`,
+          message: `Client ${name} inquired from the homepage carousel looking for property type: ${type}.`
+        })
+      })
+      .then(res => res.text())
+      .then(data => {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = "SUBMIT INQUIRY";
+        }
+        if (alertEl) {
+          alertEl.classList.remove("d-none", "text-danger");
+          alertEl.classList.add("text-success");
+          alertEl.style.color = "#22c55e"; // bright green
+          alertEl.textContent = "Thank you! Inquiry submitted successfully.";
+        }
+        inquiryForm.reset();
+      })
+      .catch(err => {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = "SUBMIT INQUIRY";
+        }
+        if (alertEl) {
+          alertEl.classList.remove("d-none", "text-success");
+          alertEl.classList.add("text-danger");
+          alertEl.style.color = "#ef4444"; // bright red
+          alertEl.textContent = "Submission failed. Please try again.";
+        }
+      });
+    });
+  }
+
+  // Pause/resume Swiper autoplay on input interaction to ensure user typing is smooth
+  const carouselContainer = document.querySelector(".hero-slider-layout");
+  if (carouselContainer) {
+    carouselContainer.addEventListener("focusin", function() {
+      if (window.hero_slider_layout && window.hero_slider_layout.autoplay) {
+        window.hero_slider_layout.autoplay.stop();
+      }
+    });
+    carouselContainer.addEventListener("focusout", function() {
+      if (window.hero_slider_layout && window.hero_slider_layout.autoplay) {
+        window.hero_slider_layout.autoplay.start();
+      }
+    });
+  }
 });
 
 function performSearch() {
