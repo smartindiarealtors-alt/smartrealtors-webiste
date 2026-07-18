@@ -436,33 +436,45 @@ header.main-header .header-sticky.active{
 }
 
 .navbar-brand{
-	padding: 0;
+	padding: 5px 0;
 	margin: 0;
-}
-
-.main-menu .nav-menu-wrapper{
-	flex: 1;
-	text-align: center;
-}
-
-.main-menu .nav-menu-wrapper > ul{
+	display: flex;
 	align-items: center;
-	display: inline-flex;
+}
+
+@media (min-width: 992px) {
+	.navbar .container-fluid {
+		max-width: 1300px;
+		margin: 0 auto;
+		padding: 0;
+	}
+	.main-menu {
+		margin-left: 80px !important;
+		margin-right: auto !important;
+		display: flex !important;
+	}
+	.main-menu ul {
+		display: flex;
+		align-items: center;
+		margin: 0;
+		padding: 0;
+	}
 }
 
 .main-menu ul li{
-	margin: 0 5px;
+	margin: 0 25px;
 	position: relative;
 }
 
 .main-menu ul li a{
 	font-family: var(--accent-font);
 	font-size: 18px;
-	font-weight: 500;
-	padding: 15px 15px !important;
+	font-weight: 600;
+	padding: 10px 0 !important;
 	color: var(--white-color);
 	text-transform: capitalize;
 	transition: all 0.3s ease-in-out;
+	letter-spacing: 0.5px;
 }
 
 .main-menu ul li.submenu > a:after{
@@ -528,7 +540,11 @@ header.main-header .header-sticky.active{
 }
 
 .header-btn .btn-default{
-	padding: 20px 30px;
+	font-size: 18px;
+	font-weight: 700;
+	padding: 15px 35px !important;
+	border-radius: 12px;
+	transition: all 0.3s ease-in-out;
 }
 
 .header-btn .btn-default:hover{
@@ -541,6 +557,7 @@ header.main-header .header-sticky.active{
 
 .header-btn .btn-default::after{
 	background: var(--white-color);
+	border-radius: 12px;
 }
 
 .main-menu ul li.highlighted-menu{
