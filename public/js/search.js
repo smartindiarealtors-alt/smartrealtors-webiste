@@ -245,13 +245,8 @@ function renderResults(results) {
             <div class="sir-price-value">${project.price}</div>
           </div>
           <div class="sir-card-actions">
-            <div class="sir-action-row-small">
-              <a href="tel:+919985730999" class="sir-btn-call" style="width: 100%;">
-                <i class="fa-solid fa-phone"></i> Call +91 9985730999
-              </a>
-            </div>
             <button onclick="bookSiteVisit('${project.name}')" class="sir-btn-book">
-              <i class="fa-solid fa-lock"></i> BOOK SITE VISIT
+              <i class="fa-solid fa-lock"></i> BOOK SITE VISIT / INQUIRE
             </button>
           </div>
         </div>
