@@ -246,11 +246,8 @@ function renderResults(results) {
           </div>
           <div class="sir-card-actions">
             <div class="sir-action-row-small">
-              <a href="tel:+919985730999" class="sir-btn-call">
-                <i class="fa-solid fa-phone"></i> Call
-              </a>
-              <a href="https://wa.me/919985730999?text=Hi!%20I'm%20interested%20in%20${encodeURIComponent(project.name)}" target="_blank" class="sir-btn-whatsapp">
-                <i class="fa-brands fa-whatsapp"></i> WhatsApp
+              <a href="tel:+919985730999" class="sir-btn-call" style="width: 100%;">
+                <i class="fa-solid fa-phone"></i> Call +91 9985730999
               </a>
             </div>
             <button onclick="bookSiteVisit('${project.name}')" class="sir-btn-book">
